@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="0" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
 	<item value="true" key="CommitDialog.showUntracked"/>
+	<item value="C:\Users\KB\Documents\GitHub\Java_grammer\.git" key="GitSelectRepositoryPage.lastRepository"/>
 	<list key="CommitDialog.authorValues">
 		<item value="dltmdwlr &lt;dltmdwlr@gmail.com&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
 		<item value="dltmdwlr &lt;dltmdwlr@gmail.com&gt;"/>
 	</list>
+	<section name="GitImportWizard">
+		<item value="true" key="GitProjectsImportPage.STORE_NESTED_PROJECTS"/>
+	</section>
 	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
 		<item value="642" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
