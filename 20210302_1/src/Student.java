@@ -3,6 +3,7 @@ public class Student {
 	private String name;
 	private String gender;
 	private int age;
+	private int num;
 	// 1 setter...
 	// 2 생성자로...
 	public Student(String n,String g,int a){

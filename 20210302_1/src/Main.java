@@ -5,27 +5,22 @@ import java.util.Scanner;
 
 public class Main {
 	/*
-	 * 1. 학생등록
-	 * 2. 학생조회
+	 * 1. 학생등록 2. 학생조회
 	 * 
-	 * 3. 학생수정
-	 * 4. 학생삭제
-	 * 5. 학생 파일로 저장
+	 * 3. 학생수정 4. 학생삭제 5. 학생 파일로 저장
 	 */
-	
+
 	public static void main(String[] args) {
-//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//		String a = br.readLine();
-		
+
 		Student[] student = new Student[50];
-		
+
 		Scanner scan = new Scanner(System.in);
-		while(true){
-			System.out.println("뭐할래요? 1,2,3,4 선택");
+		while (true) {
+			System.out.println("1. 학생등록 2. 학생조회 3. 학생수정 4. 학생삭제");
 			int select = scan.nextInt();
-			System.out.println("select = "+ select);
-			if(select ==1){
-				//학생등록
+			System.out.println("select = " + select);
+			if (select == 1) {
+				// 학생등록
 				scan.nextLine();
 				System.out.println("이름은? ");
 				String name = scan.nextLine();
@@ -33,34 +28,45 @@ public class Main {
 				String gender = scan.nextLine();
 				System.out.println("나이?");
 				int age = scan.nextInt();
-				student[0] = new Student(name, gender, age);
-			}
-			else if(select==2)
-			{
+				for (int i = 0; i < student.length; i++)
+					if (student[i] == null) {
+						student[i] = new Student(name, gender, age);
+						break;
+					}
+			} else if (select == 2) {
+				// 학생 조회
 				System.out.println("===학생조회===");
-				for(int i=0; i<student.length;i++){
-					System.out.println(i+" = "+student[i]);
-					if(student[i] != null)
+				for (int i = 0; i < student.length; i++) {
+					System.out.println(i + " = " + student[i]);
+					if (student[i] != null)
 						student[i].print();
 				}
 				System.out.println("============");
-			}
-			else{
+			} else if (select == 3) {
+				// 학생 수정
+				System.out.println("수정하고 싶은 번호 입력 : ");
+				int num = scan.nextInt();
+
+				scan.nextLine();// 입력버퍼 비우기
+				System.out.println("이름은? ");
+				String name = scan.nextLine();
+				System.out.println("성별은? ");
+				String gender = scan.nextLine();
+				System.out.println("나이?");
+				int age = scan.nextInt();
+
+				student[num] = new Student(name, gender, age);
+				System.out.println("수정 되었습니다.");
+			} else if (select == 4) {
+				// 학생 삭제
+				System.out.println("삭제하고 싶은 학생 번호 입력 : ");
+				int num = scan.nextInt();
+				student[num] = null;
+				System.out.println("삭제 되었습니다.");
+			} else {
 				System.out.println("종료됩니다.");
 				break;
 			}
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
