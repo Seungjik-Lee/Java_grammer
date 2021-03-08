@@ -22,9 +22,19 @@ public class Main {
 		return stu;
 	}
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws Exception {
+		
 		Student[] student = new Student[50];
+		
+		File file = fopen("a.txt","wt");
+		
+		FileInputStream fis = new FileInputStream(new File("a"));
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(student);
+		
+		OutputStreamWriter ow = new OutputStreamWriter(fos);
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
 		Scanner scan = new Scanner(System.in);
 		while (true) {
