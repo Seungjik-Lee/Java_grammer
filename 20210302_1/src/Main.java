@@ -10,6 +10,18 @@ public class Main {
 	 * 3. 학생수정 4. 학생삭제 5. 학생 파일로 저장
 	 */
 
+	public static Student inputStudent() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("이름은? ");
+		String name = scan.nextLine();
+		System.out.println("성별은? ");
+		String gender = scan.nextLine();
+		System.out.println("나이?");
+		int age = scan.nextInt();
+		Student stu = new Student(name, gender, age);
+		return stu;
+	}
+
 	public static void main(String[] args) {
 
 		Student[] student = new Student[50];
@@ -21,13 +33,7 @@ public class Main {
 			System.out.println("select = " + select);
 			if (select == 1) {
 				// 학생등록
-				scan.nextLine();
-				System.out.println("이름은? ");
-				String name = scan.nextLine();
-				System.out.println("성별은? ");
-				String gender = scan.nextLine();
-				System.out.println("나이?");
-				int age = scan.nextInt();
+				Student stu = inputStudent();
 				for (int i = 0; i < student.length; i++)
 					if (student[i] == null) {
 						student[i] = new Student(name, gender, age);
@@ -47,13 +53,7 @@ public class Main {
 				System.out.println("수정하고 싶은 번호 입력 : ");
 				int num = scan.nextInt();
 
-				scan.nextLine();// 입력버퍼 비우기
-				System.out.println("이름은? ");
-				String name = scan.nextLine();
-				System.out.println("성별은? ");
-				String gender = scan.nextLine();
-				System.out.println("나이?");
-				int age = scan.nextInt();
+				Student stu = inputStudent();
 
 				student[num] = new Student(name, gender, age);
 				System.out.println("수정 되었습니다.");
