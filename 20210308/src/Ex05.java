@@ -9,8 +9,8 @@ class AAA {
 public class Ex05 {
 	public static AAA aa = new AAA();
 
-public static void main(String[] args) {
-	System.out.println("test");
-	Ex05.aa.doA("test");
-}
+	public static void main(String[] args) {
+		System.out.println("test");
+		Ex05.aa.doA("test");
+	}
 }
