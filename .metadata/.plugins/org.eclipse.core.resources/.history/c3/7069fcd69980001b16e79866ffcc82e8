@@ -4,10 +4,7 @@ import java.util.Scanner;
 
 public class Ex09 {
 	public static void main(String[] args) throws FileNotFoundException {
-//		System.out.println("1111");
-//		Scanner scan = new Scanner(new File("a.txt"));
-		Scanner scan = new Scanner(new File("b.txt"));
-		
+		Scanner scan = new Scanner(new File("a.txt"));
 		int a = scan.nextInt();
 		int b = scan.nextInt();
 		int c = scan.nextInt();
