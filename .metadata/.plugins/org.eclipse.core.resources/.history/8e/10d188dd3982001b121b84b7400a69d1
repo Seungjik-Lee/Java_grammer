@@ -1,0 +1,7 @@
+package DB;
+
+public class Student_admin {
+public static void main(String[] args) {
+	
+}
+}

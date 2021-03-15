@@ -1,0 +1,39 @@
+package DB;
+
+import java.util.Scanner;
+
+public class Student_admin {
+	public static void main(String[] args) {
+		Procedure1 a = new Procedure1();
+		Procedure2 b = new Procedure2();
+		Procedure3 c = new Procedure3();
+		Procedure_del d = new Procedure_del();
+
+		Scanner scan = new Scanner(System.in);
+
+		while (true) {
+			System.out.println("번호를 입력하세요 ");
+			int i = scan.nextInt();
+
+			switch (i) {
+			case 1:{
+				a.select();
+				break;
+			}
+			case 2:{
+				a.update();
+				break;
+			}
+			case 3:{
+				a.add();
+				break;
+			}
+			case 4:{
+				a.delete();
+				break;
+			}
+			}
+		}
+
+	}
+}

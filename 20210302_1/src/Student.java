@@ -5,15 +5,15 @@ public class Student {
 	private int age;
 	private int num;
 	// 1 setter...
-	// 2 »ı¼ºÀÚ·Î...
+	// 2 ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½...
 	public Student(String n,String g,int a){
 		name = n;
 		gender = g;
 		age = a;
 	}
 	public void print(){
-		System.out.println("ÀÌ¸§Àº "+name+"ÀÔ´Ï´Ù");
-		System.out.println("¼ºº°Àº "+gender+"ÀÔ´Ï´Ù");
-		System.out.println("³ªÀÌ´Â "+age+"ÀÔ´Ï´Ù");
+		System.out.println("ì´ë¦„ : "+name);
+		System.out.println("ì„±ë³„ : "+gender);
+		System.out.println("ë‚˜ì´ : "+age);
 	}
 }

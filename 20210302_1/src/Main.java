@@ -1,4 +1,4 @@
-  
+
 import java.io.BufferedReader;
 import java.io.Console;
 import java.io.File;
@@ -15,17 +15,17 @@ import java.util.Scanner;
 
 public class Main {
 	/*
-	 * 1. ÇĞ»ıµî·Ï 2. ÇĞ»ıÁ¶È¸
+	 * 1. í•™ìƒë“±ë¡ 2. í•™ìƒì¡°íšŒ
 	 * 
-	 * 3. ÇĞ»ı¼öÁ¤ 4. ÇĞ»ı»èÁ¦ 5. ÇĞ»ı ÆÄÀÏ·Î ÀúÀå
+	 * 3. í•™ìƒìˆ˜ì • 4. í•™ìƒì‚­ì œ 5. í•™ìƒ íŒŒì¼ë¡œ ì €ì¥
 	 */
 	public static Student inputStudent() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("ÀÌ¸§Àº? ");
+		System.out.println("ì´ë¦„ì€? ");
 		String name = scan.nextLine();
-		System.out.println("¼ºº°Àº? ");
+		System.out.println("ì„±ë³„ì€? ");
 		String gender = scan.nextLine();
-		System.out.println("³ªÀÌ?");
+		System.out.println("ë‚˜ì´?");
 		int age = scan.nextInt();
 		Student stu = new Student(name, gender, age);
 		return stu;
@@ -46,9 +46,9 @@ public class Main {
 
 		// BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 		// C#, java, python...
-		// c malloc free µ¿ÀûÀ¸·Î ¸Ş¸ğ¸®ÇÒ´ç...
+		// c malloc free ë™ì ìœ¼ë¡œ ë©”ëª¨ë¦¬í• ë‹¹...
 		// ArrayList... Haspmap...
-		// python... ¹è¿­...µ¿ÀûÀ¸·Î ¸Ş¸ğ¸®ÇÒ´ç..
+		// python... ë°°ì—´...ë™ì ìœ¼ë¡œ ë©”ëª¨ë¦¬í• ë‹¹..
 
 		// System.out.println("student[0]="+student[0]);
 		// System.out.println("student[1]="+student[1]);
@@ -56,11 +56,11 @@ public class Main {
 
 		Scanner scan = new Scanner(System.in);
 		while (true) {
-			System.out.println("¹¹ÇÒ·¡¿ä? 1,2,3,4 ¼±ÅÃ");
+			System.out.println("ë­í• ë˜ìš”? 1,2,3,4 ì„ íƒ");
 			int select = scan.nextInt();
 			System.out.println("select = " + select);
 			if (select == 1) {
-				// ÇĞ»ıµî·Ï
+				// í•™ìƒë“±ë¡
 				Student stu = inputStudent();
 				for (int i = 0; i < student.length; i++) {
 					if (student[i] == null) {
@@ -69,7 +69,7 @@ public class Main {
 					}
 				}
 			} else if (select == 2) {
-				System.out.println("===ÇĞ»ıÁ¶È¸===");
+				System.out.println("===í•™ìƒì¡°íšŒ===");
 				for (int i = 0; i < student.length; i++) {
 					// System.out.println(i+" = "+student[i]);
 					if (student[i] != null)
@@ -77,23 +77,23 @@ public class Main {
 				}
 				System.out.println("============");
 			} else if (select == 3) {
-				System.out.println("¼öÁ¤ÇÏ°í ½ÍÀº ÇĞ»ı ¹øÈ£ ÀÔ·Â : ");
+				System.out.println("ìˆ˜ì •í•˜ê³  ì‹¶ì€ í•™ìƒ ë²ˆí˜¸ ì…ë ¥ : ");
 				int num = scan.nextInt();
 
 				Student stu = inputStudent();
 				student[num] = stu;
 
-				System.out.println("¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+				System.out.println("ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			} else if (select == 4) {
-				System.out.println("»èÁ¦ÇÏ°í ½ÍÀº ÇĞ»ı ¹øÈ£ ÀÔ·Â : ");
+				System.out.println("ì‚­ì œí•˜ê³  ì‹¶ì€ í•™ìƒ ë²ˆí˜¸ ì…ë ¥ : ");
 				int num = scan.nextInt();
 				student[num] = null;
-				System.out.println("»èÁ¦µÇ¾ú½À´Ï´Ù.");
+				System.out.println("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			} else {
 				FileOutputStream fos = new FileOutputStream(new File("a"));
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				oos.writeObject(student);
-				System.out.println("Á¾·áµË´Ï´Ù.");
+				System.out.println("ì¢…ë£Œë©ë‹ˆë‹¤.");
 				break;
 			}
 		}
