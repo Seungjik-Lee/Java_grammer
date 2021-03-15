@@ -18,16 +18,6 @@ public class Ex03 {
 
 		Box bana = new Box("바나나");
 		System.out.println(bana);
-
-		Box box[] = new Box[5];
-		System.out.println("박스 몇개?" + box.length);
-		System.out.println("box[0] = " + box[0]);
-		System.out.println("box[1] = " + box[1]);
-
-		box[0] = a;
-		box[1] = bana;
-		System.out.println("box[0] = " + box[0]);
-		System.out.println("box[1] = " + box[1]);
 	}
 
 	public static void main(String[] args) {
