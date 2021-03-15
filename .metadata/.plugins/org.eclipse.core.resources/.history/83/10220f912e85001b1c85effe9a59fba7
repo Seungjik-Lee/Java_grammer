@@ -28,8 +28,6 @@ public class Ex03 {
 		box[1] = bana;
 		System.out.println("box[0] = " + box[0]);
 		System.out.println("box[1] = " + box[1]);
-		// System.out.println("box[0] = " + box[0].toString);
-		// System.out.println("box[1] = " + box[1].toString);
 	}
 
 	public static void main(String[] args) {
