@@ -19,8 +19,6 @@ public class Ex01 {
 		}
 	}
 
-		//프로세스는 여러개의 쓰레드로 이루어져있다.
-	
 	public static void main(String[] args) {
 		new Ex01();
 	}
