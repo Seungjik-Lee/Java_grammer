@@ -26,10 +26,5 @@ public class SmartPhone extends MobilePhone {
 		SmartPhone sp = new SmartPhone("버전 8.0", 99462662);
 		sp.answer();
 		sp.version();
-		
-		MobilePhone mp = new SmartPhone("버전 7.0", 13132323);
-		
-		SmartPhone sp1 = (SmartPhone)mp;
-		sp1.version();
 	}
 }
