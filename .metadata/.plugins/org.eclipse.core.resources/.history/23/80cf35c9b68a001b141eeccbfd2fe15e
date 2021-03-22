@@ -1,0 +1,6 @@
+
+public class CheezeCake extends Cake {
+	public void yummy() {
+		System.out.println("CheezeCake");
+	}
+}
