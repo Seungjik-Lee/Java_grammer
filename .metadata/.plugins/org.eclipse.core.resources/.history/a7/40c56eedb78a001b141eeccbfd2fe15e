@@ -8,7 +8,7 @@ public class CheezeCake extends Cake {
 	
 	public void A(){
 		super.yummy();
-		System.out.println("A함수");
+		System.out.println("doA함수");
 		yummy();
 	}
 }

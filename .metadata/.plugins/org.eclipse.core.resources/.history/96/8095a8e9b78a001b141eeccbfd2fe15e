@@ -9,10 +9,6 @@ public static void main(String[] args) {
 	System.out.println();
 	Cake cake1 = new CheezeCake();
 	cake1.yummy();
-	
-	System.out.println();
-	CheezeCake cake2 = new CheezeCake();
-	cake2.A();
 	}
 }
 

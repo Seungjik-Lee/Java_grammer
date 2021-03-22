@@ -5,10 +5,4 @@ public class CheezeCake extends Cake {
 		super.yummy();
 		System.out.println("CheezeCake");
 	}
-	
-	public void A(){
-		super.yummy();
-		System.out.println("A함수");
-		yummy();
-	}
 }
