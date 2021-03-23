@@ -13,9 +13,6 @@ public class Ex01 implements A{
 				
 			}
 		};
-		
-		A a2 = (s)->{};
-		
 	}
 
 	@Override
