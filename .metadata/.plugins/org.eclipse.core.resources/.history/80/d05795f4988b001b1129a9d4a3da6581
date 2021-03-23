@@ -1,0 +1,11 @@
+import javax.swing.JFrame;
+
+public class AAAA extends JFrame {
+	public AAAA() {
+
+	}
+
+	public static void main(String[] args) {
+
+	}
+}
