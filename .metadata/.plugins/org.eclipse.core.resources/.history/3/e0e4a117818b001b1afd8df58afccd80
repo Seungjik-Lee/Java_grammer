@@ -1,0 +1,7 @@
+package aa.bb;
+
+public interface Printable {
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,5 +1,9 @@
 interface Printable {
 	public void print(String doc);
+	default public void printCMYK(String doc){
+		System.out.println("New default Printer");
+		System.out.println(doc);
+	}
 }
 
 interface ColorPrintable extends Printable {
