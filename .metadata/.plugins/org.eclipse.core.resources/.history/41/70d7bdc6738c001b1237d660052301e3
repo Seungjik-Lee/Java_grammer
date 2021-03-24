@@ -12,10 +12,10 @@ public class ManagerAccounting {
 
 		Scanner scan = new Scanner(System.in);
 
-		int 코드;
+//		int 코드 = null;
 		String 메뉴 = null;
-		int 판매가격;
-		int 원가;
+//		int 판매가격 = null;
+//		int 원가 = null;
 
 		JavaProject.scan.next();
 		System.out.println("코드 입력 ");
