@@ -1,0 +1,109 @@
+import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+public class Test extends JFrame {
+	public Test() {
+		JFrame frame = new JFrame("햄버거 자동 판매기");
+
+		getContentPane().setLayout(null);
+
+		JButton button = new JButton("주문하기");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		button.setBounds(325, 228, 97, 23);
+		getContentPane().add(button);
+
+		JMenu Buger_Menu = new JMenu("Buger Menu");
+		Buger_Menu.setBounds(12, 10, 107, 22);
+		getContentPane().add(Buger_Menu);
+
+		JMenu Set_Menu = new JMenu("Set Menu");
+		Set_Menu.setBounds(12, 42, 107, 22);
+		getContentPane().add(Set_Menu);
+
+		JMenu Side_Menu = new JMenu("Side Menu");
+		Side_Menu.setBounds(12, 74, 107, 22);
+		getContentPane().add(Side_Menu);
+
+		JMenu Drink_Menu = new JMenu("Drink Menu");
+		Drink_Menu.setBounds(12, 106, 107, 22);
+		getContentPane().add(Drink_Menu);
+	}
+
+	public class AccountingMain {
+
+		public static Scanner scan = new Scanner(System.in);
+
+		public AccountingMain() {
+
+			ManagerAccounting ma = new ManagerAccounting();
+
+			String select = "조회";
+			String update = "갱신";
+
+			String input = null;
+
+			while (true) {
+				System.out.println("매출 관리 프로그램        |조회| |메뉴 갱신| |메뉴 추가| |종료|");
+				input = scan.nextLine();
+				if (input.equals(select)) { // 테이블 조회
+					ma.selectAccountingtable();
+				} else if (input.equals(update)) { // 코드와 메뉴를 입력하면 가격을 수정
+					ma.updateAccountingtable();
+				}
+				/*
+				 * else if (select == 3) // 메뉴를 추가할 때
+				 * ma.insertAccountingtable();
+				 */
+				else
+					System.exit(1);
+			}
+		}
+
+		public void main(String[] args) {
+			new AccountingMain();
+		}
+
+	private void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		}
+	}
+
+	private static class __Tmp {
+		private static void __tmp() {
+			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+			  
+			  javax.swing.JLabel label = com.jgoodies.forms.factories.DefaultComponentFactory.getInstance().createTitle("New JGoodies title");
+			  __wbp_panel.add(label);
+		}
+	}

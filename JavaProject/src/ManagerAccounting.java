@@ -16,21 +16,19 @@ public class ManagerAccounting {
 		String 메뉴 = null;
 		int 판매가격;
 		int 원가;
-
-		JavaProject.scan.next();
+		double 부가세;
+		int 수량;
+		int 매출;
+		
 		System.out.println("코드 입력 ");
-		코드 = JavaProject.scan.nextInt();
+		코드 = AccountingMain.scan.nextInt();
 		System.out.println("메뉴 입력");
-		메뉴 = JavaProject.scan.next();
+		메뉴 = AccountingMain.scan.next();
 		System.out.println("판매가격 입력");
-		판매가격 = JavaProject.scan.nextInt();
+		판매가격 = AccountingMain.scan.nextInt();
 		System.out.println("원가 입력");
-		원가 = JavaProject.scan.nextInt();
+		원가 = AccountingMain.scan.nextInt();
 
-		// try 구문 안에 있는 내용을 실행하다가 에러가 발생하면 catch로 빠진다.
-		/*
-		 * 1. jar 파일 추가 확인 2. DB 연결 3. SQL 구문 작성
-		 */
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -40,11 +38,14 @@ public class ManagerAccounting {
 
 			System.out.println("DB 연결 성공");
 
-			pstmt = conn.prepareStatement("UPDATE ACCOUNTING " + "SET 코드 = ?, 메뉴 = ?, 판매가격 = ?, 원가 = ? " + "WHERE IDX = ? ");
+			pstmt = conn.prepareStatement("UPDATE ACCOUNTING " + "SET 코드 = ?, 메뉴 = ?, 판매가격 = ?, 원가 = ?, 부가세 = ?, 수량 = ?, 매출 = ? " + "WHERE IDX = ? ");
 			pstmt.setInt(1, 코드);
 			pstmt.setString(2, 메뉴);
 			pstmt.setInt(3, 판매가격);
 			pstmt.setInt(4, 원가);
+			pstmt.setDouble(5, 부가세 = 판매가격 * 0.1);
+//			pstmt.setInt(6, 수량); //수량을 어떻게 받아야하나..
+//			pstmt.setInt(7, 매출 = 판매가격 * 수량); //수량을 어떻게 받아야하나..
 
 			pstmt.executeUpdate();
 
@@ -66,20 +67,19 @@ public class ManagerAccounting {
 
 		Scanner scan = new Scanner(System.in);
 
-		int 코드 = null;
+		int 코드 ;
 		String 메뉴 = null;
-		int 판매가격 = null;
-		int 원가 = null;
+		int 판매가격 ;
+		int 원가 ;
 
-		JavaProject.scan.nextLine();
-		System.out.println("번호 입력 ");
-		코드 = JavaProject.scan.nextInt();
-		System.out.println("이름 입력");
-		메뉴 = JavaProject.scan.next();
-		System.out.println("성별 입력");
-		판매가격 = JavaProject.scan.nextInt();
-		System.out.println("비고 입력");
-		원가 = JavaProject.scan.nextInt();
+		System.out.println("코드 입력 ");
+		코드 = AccountingMain.scan.nextInt();
+		System.out.println("메뉴 입력");
+		메뉴 = AccountingMain.scan.next();
+		System.out.println("판매가격 입력");
+		판매가격 = AccountingMain.scan.nextInt();
+		System.out.println("원가 입력");
+		원가 = AccountingMain.scan.nextInt();
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -117,6 +117,9 @@ public class ManagerAccounting {
 		PreparedStatement pstmt = null; // SQL 구문작성 객체
 		ResultSet rs = null; // table 내용을 담는 객체
 
+		System.out.println("   코드                        메뉴                       가격           원가         부가세    수량    매출");
+		System.out.println("=========================================================");
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -127,10 +130,13 @@ public class ManagerAccounting {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				System.out.print(rs.getInt(1) + " ");
-				System.out.print(rs.getString(2) + " ");
-				System.out.print(rs.getInt(3) + " ");
-				System.out.println(rs.getInt(4));
+				System.out.print(rs.getInt(1) + " | ");
+				System.out.printf("%12s",rs.getString(2));
+				System.out.print(" | " + rs.getInt(3) + " | ");
+				System.out.print(rs.getInt(4));
+				System.out.print(" | " + rs.getInt(5) + " | ");
+				System.out.print(rs.getInt(6));
+				System.out.println(" | " + rs.getInt(7));
 			}
 
 		} catch (Exception e) {
