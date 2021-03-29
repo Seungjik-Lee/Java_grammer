@@ -19,7 +19,11 @@ public class DataBaseManager implements ActionListener {
 			// Oracle 연결하는 jar 파일 추가 확인
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","AI","1234");
-			pstmt = conn.prepareStatement("insert into atable values(10,'a','b','b')");
+			pstmt = conn.prepareStatement("insert into atable values(?,?,?,?)");
+			pstmt.setInt(1, Integer.parseInt(Ex01.tf_IDX.getText()));
+			pstmt.setString(2, Ex01.tf_IDX.getText());
+			pstmt.setString(3, Ex01.tf_GENDER.getText());
+			pstmt.setString(4, Ex01.tf_REMARK.getText());
 			pstmt.executeUpdate();
 			
 		} catch (ArithmeticException ae) {
