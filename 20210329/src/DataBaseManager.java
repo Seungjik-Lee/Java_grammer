@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 import javax.swing.JOptionPane;
 
@@ -8,11 +11,17 @@ public class DataBaseManager implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
 		// 시도하라
 		try {
 //			int a = 1 / 0;
 			// Oracle 연결하는 jar 파일 추가 확인
 			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","AI","1234");
+			pstmt = conn.prepareStatement("insert into atable values(10,'a','b','b')");
+			pstmt.executeUpdate();
+			
 		} catch (ArithmeticException ae) {
 			JOptionPane.showMessageDialog(null, "0으로 나눌 수 없다.");
 		} catch (ClassNotFoundException cne) {

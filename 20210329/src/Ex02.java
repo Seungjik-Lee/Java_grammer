@@ -12,7 +12,9 @@ public class Ex02 {
 			int n2 = scan.nextInt();
 
 			System.out.println("n1/n2 = " + (n1 / n2));
+			System.out.println("예외발생하면 안나오는 구문");
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			System.out.println("캐치..");
 		}
 		

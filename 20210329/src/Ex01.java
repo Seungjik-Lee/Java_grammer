@@ -22,12 +22,12 @@ public class Ex01 extends JFrame {
 	Ex01() { // Ex01 은 JFrame 이다
 		getContentPane().setLayout(null); // 버튼 꽉 차는 것 지우기
 		btn1.setBounds(20, 20, 100, 30);
-		btn1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("이거는 인터페이스");
-			}
-		});
+//		btn1.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				System.out.println("이거는 인터페이스");
+//			}
+//		});
 
 		btn1.addActionListener((e) -> {
 			System.out.println("랄다...");
