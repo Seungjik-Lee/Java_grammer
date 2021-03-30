@@ -34,11 +34,14 @@ public class Ex05 extends JFrame{
 		btn4.setBounds(339, 305, 97, 23);
 		getContentPane().add(btn4);
 		
+		JButton btn5 = new JButton("btn5");
+		btn5.setBounds(12, 338, 97, 23);
+		getContentPane().add(btn5);
+		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(12, 0, 425, 295);
 		panel.setLayout(new CardLayout(0, 0));
-		
 		
 		Mypanel mp1 = new Mypanel("1");
 		Mypanel mp2 = new Mypanel("2");
@@ -49,6 +52,9 @@ public class Ex05 extends JFrame{
 		NNPanel mp4 = new NNPanel();
 		panel.add(mp3,"3");
 		panel.add(mp4,"4");
+		
+		CPanel cp1 = new CPanel();
+		panel.add(cp1,"cp1");
 		
 		getContentPane().add(panel);
 		
@@ -66,7 +72,6 @@ public class Ex05 extends JFrame{
 				cards.show(panel, "2");
 			}
 		});
-		
 		btn3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -80,6 +85,14 @@ public class Ex05 extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				CardLayout cards =  (CardLayout) panel.getLayout();				
 				cards.show(panel, "4");
+			}
+		});
+		
+		btn5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cards =  (CardLayout) panel.getLayout();				
+				cards.show(panel, "cp1");
 			}
 		});
 		
