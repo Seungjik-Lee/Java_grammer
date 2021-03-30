@@ -7,14 +7,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import java.awt.CardLayout;
 
-public class Ex05 extends JFrame{
-	class Mypanel extends JPanel{
-		public String name;
-		public Mypanel(String name) {
-			this.name = name;
-			this.add(new JButton(name));
-		}
+class Mypanel extends JPanel{
+	public String name;
+	public Mypanel(String name) {
+		this.name = name;
+		this.add(new JButton(name));
 	}
+}
+public class Ex05 extends JFrame{
 	public Ex05() {
 		getContentPane().setLayout(null);
 		
@@ -37,8 +37,8 @@ public class Ex05 extends JFrame{
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(12, 0, 425, 295);
-		getContentPane().add(panel);
 		panel.setLayout(new CardLayout(0, 0));
+		
 		
 		Mypanel mp1 = new Mypanel("1");
 		Mypanel mp2 = new Mypanel("2");
@@ -50,7 +50,7 @@ public class Ex05 extends JFrame{
 		panel.add(mp3,"3");
 		panel.add(mp4,"4");
 		
-		
+		getContentPane().add(panel);
 		
 		btn1.addActionListener(new ActionListener() {
 			@Override
