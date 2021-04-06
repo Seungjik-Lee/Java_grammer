@@ -1,0 +1,29 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Seat extends JFrame {
+	public static void main(String[] args) {
+		int posXpanSeat,posYpanSeat;
+		String PanSeat;
+		PanSeat[] pan = new PanSeat[50];
+		JPanel seat50 = new JPanel();
+		seat50.setLayout(null);
+		seat50.setOpaque(false);
+		seat50.setBounds(165, 109, 1368, 686);
+		for (int seat = 0; seat < 50; seat++) {
+		    pan[seat] = new PanSeat(seat);
+		    if (seat % 10 == 0 && seat != 0) {
+		        posXpanSeat = 0;
+		        posYpanSeat += 140;
+		    }
+		    pan[seat].setBounds(posXpanSeat, posYpanSeat, 99, 99);
+		    posXpanSeat += 135;
+		    seat50.add(pan[seat]);
+		}
+		 
+		     
+		add(setJLayered(backGround, myStarPanel, imgClock, clockMessage, seat50));
+
+	}
+	
+}
