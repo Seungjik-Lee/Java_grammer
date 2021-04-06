@@ -9,18 +9,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class JtableEx01 extends JFrame {
+	
 	JPanel center_panel = new JPanel();
 	JPanel bottom_panel = new JPanel();
+	
 	JButton btn_select = new JButton("조회");
-
+	
 	JTable jt = null;
 	JScrollPane jp = null;
-
-	Vector<Vector> data = new Vector<Vector>();
-	Vector<String> title = new Vector<String>();
-
+	
+	public static DefaultTableModel DFTM = null; 
+	
+	public static Vector<Vector> data = new Vector<Vector>();
+	public static Vector<String> title = new Vector<String>();
+	
 	public JtableEx01() {
 		center_panel.setLayout(null);	// 해당 좌표와 크기에 따라서 컴포넌트가 추가
 		
@@ -50,52 +55,41 @@ public class JtableEx01 extends JFrame {
 		data.add(data1);
 		data.add(data2);
 		
-		jt = new JTable(data,title);
+		DFTM = new DefaultTableModel(data,title);
+		
+		jt = new JTable(DFTM);
 		jt.setBounds(0, 0, 785, 530);	//jtable 크기지정
 		
 		// 스크롤 패널위에 테이블 추가
 		jp = new JScrollPane(jt);
 		jp.setBounds(0, 0, 785, 530);	//jtable 크기지정
 		
-		// center 페널에 스크롤 페널 추가
+		// 중간 페널에 스크롤 페널 추가
 		// JPanel 기본 레이아웃 -> FlowLayout -> 흐르는거..
 		// Component -> JButton, Jtable, JScrollPane, JLabel
 		// Contorl -> DataGridView, Label, TextField
-		
 		center_panel.add(jp, BorderLayout.CENTER);
 		
-		//  south 패널에 버튼 추가
+		// 밑에 패널에 버튼 추가
 		bottom_panel.add(btn_select);
 		btn_select.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				data.clear();
 				
-				Vector<String> data1 = new Vector<String>();
-				data1.add("내용내용1");
-				data1.add("내용내용1");
-				data1.add("내용내용1");
-				data1.add("내용내용1");
+				//data 내용을 DB에서 가져와야함..
+				DBManager dbm = new DBManager();
+				dbm.getData();
 				
-				Vector<String> data2 = new Vector<String>();
-				data2.add("내용내용2");
-				data2.add("내용내용2");
-				data2.add("내용내용2");
-				data2.add("내용내용2");
+				DFTM.fireTableDataChanged();
 				
-				
-				data.add(data1);
-				data.add(data2);
-				
-				jt = new JTable(data,title);
-				jt.setBounds(0, 0, 785, 530);
-				
-				// 스크롤 패널위에 테이블 추가
-				jp = new JScrollPane(jt);
-				jp.setBounds(0, 0, 785, 530);
-				
-				// 중간 페널에 스크롤 페널 추가
-				center_panel.add(jp, BorderLayout.CENTER);
+//				jt = new JTable(data,title);
+//				jt.setBounds(0, 0, 785, 530);
+//				
+//				jp = new JScrollPane(jt);
+//				jp.setBounds(0, 0, 785, 530);
+//				
+//				center_panel.add(jp, BorderLayout.CENTER);
 			}
 		});
 		
@@ -106,8 +100,9 @@ public class JtableEx01 extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
+	
 	public static void main(String[] args) {
 		new JtableEx01();
 	}
 }
+

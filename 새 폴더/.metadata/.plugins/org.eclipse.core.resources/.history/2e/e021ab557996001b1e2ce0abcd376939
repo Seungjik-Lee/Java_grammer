@@ -1,0 +1,41 @@
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+
+public class DBManager {
+	public Vector<Vector> getData() {
+		Vector<Vector> data = new Vector<Vector>();
+
+		Connetion conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "AI", "1234");
+			pstmt = conn.prepareStatement("select * from atable");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Vector<String> row = new Vector<String>();
+				row.add(rs);
+				data.add(row);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception closee) {
+
+			}
+		}
+
+		return data;
+	}
+}
